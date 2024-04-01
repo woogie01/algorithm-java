@@ -1,11 +1,7 @@
 class Solution {
-    public long solution(int price, int money, int count) {
-        
-        long sum = 0;
-        for (int i = 1; i <= count; i++) {
-            sum += price * i;
-        }
-        
-        return money > sum ? 0 : sum - money;
+    public long solution(long price, long money, long count) {
+      
+      // 등차수열의 합 + max() 메서드  
+      return Math.max(price * (count * (count + 1) / 2) - money, 0);
     }
 }
