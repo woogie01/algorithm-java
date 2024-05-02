@@ -1,26 +1,27 @@
-import java.util.*;
-
 class Solution {
     public String[] solution(int n, int[] arr1, int[] arr2) {
+        
+        int[] binary = new int[n];
         String[] answer = new String[n];
         
         for (int i = 0; i < n; i++) {
-            String binA = String.format("%" + n + "s", Integer.toBinaryString(arr1[i])).replace(' ', '0');
-            String binB = String.format("%" + n + "s", Integer.toBinaryString(arr2[i])).replace(' ', '0');
-            
+            binary[i] = arr1[i] | arr2[i];
+        }
+        
+        for (int i = 0; i < n; i++) {
             StringBuilder sb = new StringBuilder();
+            int remainder = binary[i];
+            
             for (int j = 0; j < n; j++) {
-                int tmpA = binA.charAt(j) - '0';
-                int tmpB = binB.charAt(j) - '0';
-                
-                if (tmpA == 1 || tmpB == 1) {
-                    sb.append('#');
+                if ((remainder & 1) == 1) {
+                    sb.insert(0, '#');
                 } else {
-                    sb.append(' ');
+                    sb.insert(0, " ");
                 }
+                remainder >>= 1;
             }
-            answer[i] = sb.toString();            
-        }   
+            answer[i] = sb.toString();
+        }
         return answer;
     }
 }
