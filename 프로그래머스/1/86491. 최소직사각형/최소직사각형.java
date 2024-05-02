@@ -8,15 +8,14 @@ class Solution {
         for (int[] arr : sizes) {
             Arrays.sort(arr);
             
-            if (arr[0] > first) {
-                first = arr[0];
-            } else if (arr[0] > second) {
+            
+            if (arr[1] > first) {
+                first = arr[1];
+            }
+            
+            if (arr[0] > second) {
                 second = arr[0];
             } 
-            
-            if (arr[1] > second) {
-                second = arr[1];
-            }
         }
         
         int answer = first * second;
