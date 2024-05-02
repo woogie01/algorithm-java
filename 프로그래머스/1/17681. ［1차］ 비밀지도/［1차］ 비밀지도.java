@@ -4,7 +4,7 @@ class Solution {
         int[] binary = new int[n];
         String[] answer = new String[n];
 
-        // 비트 연산자 이용해서 각 비트 비교
+        // 비트 연산자 이용해서 각 자리의 비트 비교
         for (int i = 0; i < n; i++) {
             binary[i] = arr1[i] | arr2[i];
         }
@@ -21,7 +21,7 @@ class Solution {
                     sb.insert(0, " ");
                 }
 
-                // 오른쪽 비트로 이동
+                // 현재 비트에서 오른쪽 비트로 이동
                 remainder >>= 1;
             }
             answer[i] = sb.toString();
