@@ -1,23 +1,29 @@
+import java.util.Stack;
+
 class Solution {
     public String solution(int[] food) {
         
+        Stack<Integer> stack = new Stack<>();
         StringBuilder sb = new StringBuilder();
-        sb.append("0");
-        for (int i = food.length - 1; i >= 0; i--) {
+        
+        // 앞의 부분 추가
+        for (int i = 1; i < food.length; i++) {
             
             int cnt = food[i] / 2;
-            
-            if (cnt > 0) {
-                String str = Integer.toString(i);
-                for (int j = 0; j < cnt; j++) {
-                    sb.insert(0, str);
-                    sb.reverse().insert(0, str);
-                }
-            }    
+            for (int j = 0; j < cnt; j++) {
+                sb.append(i);
+                stack.push(i);
+            }
         }
         
-        String answer = sb.toString();    
+        // 가운데 부분 : 0 추가
+        sb.append(0);
         
-        return answer;
+        // 마지막 부분 추가
+        while (!stack.isEmpty()){
+            sb.append(stack.pop());
+        }
+        
+        return sb.toString();
     }
 }
