@@ -1,5 +1,3 @@
-import java.util.*;
-
 class Solution {
     public String solution(String s, String skip, int index) {
         
@@ -12,7 +10,7 @@ class Solution {
                     } else {
                         ch = 'a';
                     }
-                } while (skip.contains(ch+""));
+                } while (skip.contains(String.valueOf(ch)));
             }
             sb.append(ch);
         }
