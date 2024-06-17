@@ -10,7 +10,7 @@ class Solution {
                     } else {
                         ch = 'a';
                     }
-                } while (skip.contains(String.valueOf(ch)));
+                } while (skip.contains(String.valueOf(ch))); // 특정 값을 String 값으로 변경할 때 사용!!
             }
             sb.append(ch);
         }
