@@ -9,16 +9,9 @@ class Solution {
         columns.put("maximum", 2);
         columns.put("remain", 3);
         
-        List<int[]> extractList = new ArrayList<>();
-        for (int[] cur : data) {
-            if (cur[columns.get(ext)] < val_ext) {
-                extractList.add(cur);
-            }
-        }
+        int[][] extractData = Arrays.stream(data).filter(x -> x[columns.get(ext)] < val_ext).toArray(int[][]::new);
+        Arrays.sort(extractData, (o1, o2) -> o1[columns.get(sort_by)] - o2[columns.get(sort_by)]);
         
-        extractList.sort(Comparator.comparingInt(arr -> arr[columns.get(sort_by)]));
-        
-        return extractList.toArray(new int[0][]);
-        
+        return extractData;
     }
 }
