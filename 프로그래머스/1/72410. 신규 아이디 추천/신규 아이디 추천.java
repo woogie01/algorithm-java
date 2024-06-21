@@ -49,7 +49,7 @@ class Solution {
     }
 
 
-    // 정규 표현식의 활용
+    // chatGPT 최적화 : 정규 표현식의 활용
     public String solution02(String new_id) {
         
         // 1단계: 모든 대문자를 소문자로 치환
