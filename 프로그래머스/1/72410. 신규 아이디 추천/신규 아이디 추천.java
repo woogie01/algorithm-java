@@ -48,6 +48,7 @@ class Solution {
         return new_id;
     }
 
+
     // 정규 표현식의 활용
     public String solution02(String new_id) {
         
