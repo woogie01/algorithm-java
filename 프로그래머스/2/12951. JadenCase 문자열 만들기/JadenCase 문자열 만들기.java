@@ -2,7 +2,7 @@ class Solution {
     public String solution(String s) {
         
         boolean isFirst = true;
-        char[] strArr = s.toCharArray();
+        char[] strArr = s.toLowerCase().toCharArray();
         for (int i = 0; i < strArr.length; i++) {
             char ch = strArr[i];
             if (isFirst && ch != ' ') { // 첫 글자O
@@ -11,9 +11,7 @@ class Solution {
             } else { // 첫 글자X
                 if (ch == ' ') {
                     isFirst = true;
-                } else {
-                    strArr[i] = Character.toLowerCase(ch);
-                }
+                } 
             }
         }
         return String.valueOf(strArr);
