@@ -1,9 +1,11 @@
+package week02;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Main {
+public class quiz03_11659 {
 
     /**
      * 2주차 개념 : 구간 합
@@ -15,16 +17,19 @@ public class Main {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer stringTokenizer = new StringTokenizer(bufferedReader.readLine());
 
-        int numCnt = Integer.parseInt(stringTokenizer.nextToken());
-        int repeatCnt = Integer.parseInt(stringTokenizer.nextToken());
+        // N, M 입력 받기
+        int N = Integer.parseInt(stringTokenizer.nextToken());
+        int M = Integer.parseInt(stringTokenizer.nextToken());
 
-        long[] sumArr = new long[numCnt + 1];
+        // N 개의 숫자 입력 받으면서 합 배열 생성
+        long[] sumArr = new long[N + 1];
         stringTokenizer = new StringTokenizer(bufferedReader.readLine());
-        for (int i = 1; i <= numCnt; i++) {
+        for (int i = 1; i <= N; i++) {
             sumArr[i] = sumArr[i-1] + Integer.parseInt(stringTokenizer.nextToken());
         }
 
-        for (int R = 0; R < repeatCnt; R++) {
+        // M 개의 구간 합 계산하기
+        for (int k = 0; k < M; k++) {
             stringTokenizer = new StringTokenizer(bufferedReader.readLine());
             int i = Integer.parseInt(stringTokenizer.nextToken());
             int j = Integer.parseInt(stringTokenizer.nextToken());
